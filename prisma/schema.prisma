@@ -1,0 +1,27 @@
+// This is your Prisma schema file.
+// For more information, see: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MsgAscii {
+  id      Int    @id @default(autoincrement())
+  payload String
+  createdAt DateTime @default(now())
+
+  @@map("msgascii")
+}
+
+model MsgBinary {
+  id      Int    @id @default(autoincrement())
+  payload Bytes
+  createdAt DateTime @default(now())
+
+  @@map("msgbinary")
+}

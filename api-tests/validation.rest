@@ -1,0 +1,27 @@
+### AI-Assisted - Validation API Tests
+### Base URL
+@baseUrl = http://localhost:3000
+
+### Validate ASCII Messages
+GET {{baseUrl}}/validation/ascii
+Accept: application/json
+
+###
+
+### Validate Binary Messages
+GET {{baseUrl}}/validation/binary
+Accept: application/json
+
+###
+
+### Get Validation Summary
+GET {{baseUrl}}/validation/summary
+Accept: application/json
+
+###
+
+### Get Full Validation Report
+GET {{baseUrl}}/validation/full-report
+Accept: application/json
+
+###

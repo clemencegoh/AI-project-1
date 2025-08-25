@@ -1,0 +1,27 @@
+### AI-Assisted - Main Application API Tests
+### Base URL
+@baseUrl = http://localhost:3000
+
+### Health Check
+GET {{baseUrl}}/
+Accept: application/json
+
+###
+
+### Start Message Collection from Aetheric Engine
+POST {{baseUrl}}/start-collection
+Content-Type: application/json
+
+###
+
+### Get Collection Status
+GET {{baseUrl}}/status
+Accept: application/json
+
+###
+
+### Force Stop Collection (if needed)
+POST {{baseUrl}}/stop-collection
+Content-Type: application/json
+
+###

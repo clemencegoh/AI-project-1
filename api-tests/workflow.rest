@@ -1,0 +1,79 @@
+### AI-Assisted - Complete Workflow for Aetheric Engine Message Collection
+### This file demonstrates the complete workflow from start to finish
+
+### Base URL
+@baseUrl = http://localhost:3000
+
+### Step 1: Health Check - Verify the application is running
+GET {{baseUrl}}/
+Accept: application/json
+
+###
+
+### Step 2: Check Initial Status - Should show no messages collected yet
+GET {{baseUrl}}/status
+Accept: application/json
+
+###
+
+### Step 3: Start Message Collection from Aetheric Engine
+### This will:
+### - Connect to 35.213.160.152:8080
+### - Send AUTH command with JWT token
+### - Begin collecting ASCII and binary messages
+### - Store messages in Neon PostgreSQL database
+### - Stop automatically after 600+ messages
+POST {{baseUrl}}/start-collection
+Content-Type: application/json
+
+###
+
+### Step 4: Monitor Collection Progress (run this multiple times)
+### Watch the totalMessages count increase towards 600
+GET {{baseUrl}}/status
+Accept: application/json
+
+###
+
+### Step 5: Wait for Collection to Complete
+### The status should show isRunning: false when done
+### You can run this periodically to check progress
+GET {{baseUrl}}/status
+Accept: application/json
+
+###
+
+### Step 6: Validate ASCII Messages
+### Verify all ASCII messages were parsed correctly
+GET {{baseUrl}}/validation/ascii
+Accept: application/json
+
+###
+
+### Step 7: Validate Binary Messages
+### Verify all binary messages were parsed correctly
+GET {{baseUrl}}/validation/binary
+Accept: application/json
+
+###
+
+### Step 8: Get Complete Validation Summary
+### Overview of all collected and validated messages
+GET {{baseUrl}}/validation/summary
+Accept: application/json
+
+###
+
+### Step 9: Get Detailed Validation Report
+### Includes sample messages and statistics
+GET {{baseUrl}}/validation/full-report
+Accept: application/json
+
+###
+
+### Optional: Force Stop Collection (if needed during testing)
+### Use this only if you need to stop collection before 600 messages
+# POST {{baseUrl}}/stop-collection
+# Content-Type: application/json
+
+###
