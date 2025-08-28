@@ -45,7 +45,8 @@ A NestJS-based TCP client application that connects to the Aetheric Engine serve
    cd /path/to/aetheric-engine-client
    ```
 
-2. **Start the application**:
+2. **Start the application**: No longer relevant
+   - Ignore the below since this is only relevant for postgres and we're now using sqlite
    ```bash
    docker-compose up -d
    ```
