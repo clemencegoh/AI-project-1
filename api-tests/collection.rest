@@ -1,0 +1,7 @@
+### Start collection process
+POST http://localhost:3000/start-collection
+Content-Type: application/json
+
+
+
+
